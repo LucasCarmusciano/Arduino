@@ -1,10 +1,19 @@
+int PULSADOR = 2;
+int LED = 3;
+int ESTADO = LOW;
+
 void setup() {
-  pinMode(13, OUTPUT);      // pin 13 como salida
+  pinMode(2, INPUT);      // pin 2 como entrada
+  pinMode(3, OUTPUT);      // pin 3 como salida
 }
 
 void loop() {
-  digitalWrite(13, HIGH);     // pin 13 a nivel alto (1)
-  delay(2000);                // demora de 2 seg.
-  digitalWrite(13, LOW);      // pin 13 a nivel bajo (0)
-  delay(1000);                // demora de 1 seg.
+  while (digitalRead(PULSADOR) == LOW){
+    // bucle vacio para que no realice ninguna accion mientras no se aprieta
+  }
+  ESTADO = digitalRead(LED);        // lee el estado
+  digitalWrite(LED, !ESTADO);       // realiza el estado opuesto
+  while (digitalRead(PULSADOR) == HIGH){
+    // bucle vacio para que no realice ninguna accion mientras se mantiene apretado
+}
 }
